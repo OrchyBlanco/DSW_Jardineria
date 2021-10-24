@@ -6141,19 +6141,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sergio\\.nuget\\packages\\": {}
+    "C:\\Users\\jesus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sergio\\Desktop\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj",
+      "projectUniqueName": "C:\\Users\\jesus\\OneDrive\\Escritorio\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj",
       "projectName": "DSW-JARDINERIA",
-      "projectPath": "C:\\Users\\Sergio\\Desktop\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj",
-      "packagesPath": "C:\\Users\\Sergio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sergio\\Desktop\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\obj\\",
+      "projectPath": "C:\\Users\\jesus\\OneDrive\\Escritorio\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj",
+      "packagesPath": "C:\\Users\\jesus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jesus\\OneDrive\\Escritorio\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sergio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jesus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
