@@ -1,5 +1,6 @@
 ﻿using DSW_JARDINERIA.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,21 @@ namespace DSW_JARDINERIA.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private readonly IStringLocalizer<HomeController> localizador; //Internacionalizacion
+        
+        /*
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
+        */
+
+        //Internacionalizacion
+        public HomeController(IStringLocalizer<HomeController> localizador)
+        {
+            this.localizador = localizador;
+        }
+        //Fin Internacionalizacion
 
         public IActionResult Index()
         {

@@ -318,6 +318,11 @@
         "runtime": {
           "DSW-JARDINERIA.dll": {}
         },
+        "resources": {
+          "en/DSW-JARDINERIA.resources.dll": {
+            "locale": "en"
+          }
+        },
         "compile": {
           "DSW-JARDINERIA.dll": {}
         }
