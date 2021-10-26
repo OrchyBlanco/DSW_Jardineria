@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 #nullable disable
 
 namespace DSW_JARDINERIA.Models
@@ -11,7 +12,7 @@ namespace DSW_JARDINERIA.Models
         {
             DetallePedidos = new HashSet<DetallePedido>();
         }
-
+        
         public string CodigoProducto { get; set; }
         public string Nombre { get; set; }
         public string Gama { get; set; }

@@ -167,3 +167,8 @@ C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DS
 C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Views\GamaProductoes\Details.cshtml.g.cs
 C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Views\GamaProductoes\Edit.cshtml.g.cs
 C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Views\GamaProductoes\Index.cshtml.g.cs
+C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Views\Productoes\Create.cshtml.g.cs
+C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Views\Productoes\Delete.cshtml.g.cs
+C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Views\Productoes\Details.cshtml.g.cs
+C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Views\Productoes\Edit.cshtml.g.cs
+C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Views\Productoes\Index.cshtml.g.cs
