@@ -1,4 +1,5 @@
 using DSW_JARDINERIA.Data;
+using DSW_JARDINERIA.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,7 +30,13 @@ namespace DSW_JARDINERIA
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-           
+            //Acceso a Base de datos
+            services.AddDbContext<jardineriaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllersWithViews();
+
+            //Fin Acceso Base de datos
+
+
             //Internacionalizacion
             services.AddLocalization(opt => { opt.ResourcesPath = "Recursos"; });
             services.AddMvc()

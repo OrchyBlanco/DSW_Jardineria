@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DSW_JARDINERIA.Models.GamaProducto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionTexto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionHtml)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionTexto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionHtml)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imagen)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Gama">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Gama">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Gama">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
