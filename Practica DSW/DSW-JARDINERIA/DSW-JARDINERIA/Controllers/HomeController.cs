@@ -23,6 +23,7 @@ namespace DSW_JARDINERIA.Controllers
         */
 
         //Internacionalizacion
+
         public HomeController(IStringLocalizer<HomeController> localizador)
         {
             this.localizador = localizador;
@@ -31,13 +32,13 @@ namespace DSW_JARDINERIA.Controllers
 
         public IActionResult Index()
         {
-           // ViewData["bienvenido"] = localizador["bienvenido"];
+           ViewData["bienvenido"] = localizador["bienvenido"];
             return View();
         }
 
         public IActionResult Privacy()
         {
-            //ViewData["privacidad"] = localizador["privadidad"];
+            ViewData["privacidad"] = localizador["privacidad"];
             return View();
         }
 

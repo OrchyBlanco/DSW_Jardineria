@@ -345,4 +345,7 @@ C:\Users\2dawaa\Documents\GitHub\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-
 C:\Users\2dawaa\Documents\GitHub\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\ref\DSW-JARDINERIA.dll
 C:\Users\2dawaa\Documents\GitHub\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\DSW-JARDINERIA.pdb
 C:\Users\2dawaa\Documents\GitHub\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\DSW-JARDINERIA.genruntimeconfig.cache
-C:\Users\2dawaa\Documents\GitHub\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\DSW-JARDINERIA.csproj.AssemblyReference.cache
+C:\Users\2dawaa\Documents\GitHub\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\bin\Debug\net5.0\es\DSW-JARDINERIA.resources.dll
+C:\Users\2dawaa\Documents\GitHub\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\es\DSW-JARDINERIA.resources.dll
+C:\Users\2dawaa\Documents\GitHub\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\DSW_JARDINERIA.Recursos.Controllers.HomeController.en.resources
+C:\Users\2dawaa\Documents\GitHub\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\DSW_JARDINERIA.Recursos.Controllers.HomeController.es.resources
