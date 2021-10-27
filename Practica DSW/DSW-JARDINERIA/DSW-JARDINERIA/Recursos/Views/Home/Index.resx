@@ -120,4 +120,7 @@
   <data name="bienvenido" xml:space="preserve">
     <value>¡Bienvenido!</value>
   </data>
+  <data name="privacidad" xml:space="preserve">
+    <value>Privacidad</value>
+  </data>
 </root>

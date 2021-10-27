@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jesus\\OneDrive\\Escritorio\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj": {}
+    "C:\\Users\\2dawaa\\Documents\\GitHub\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jesus\\OneDrive\\Escritorio\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj": {
+    "C:\\Users\\2dawaa\\Documents\\GitHub\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jesus\\OneDrive\\Escritorio\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj",
+        "projectUniqueName": "C:\\Users\\2dawaa\\Documents\\GitHub\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj",
         "projectName": "DSW-JARDINERIA",
-        "projectPath": "C:\\Users\\jesus\\OneDrive\\Escritorio\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj",
-        "packagesPath": "C:\\Users\\jesus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jesus\\OneDrive\\Escritorio\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\obj\\",
+        "projectPath": "C:\\Users\\2dawaa\\Documents\\GitHub\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\DSW-JARDINERIA.csproj",
+        "packagesPath": "C:\\Users\\2dawaa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\2dawaa\\Documents\\GitHub\\DSW_Jardineria\\Practica DSW\\DSW-JARDINERIA\\DSW-JARDINERIA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jesus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\2dawaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,13 +64,13 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

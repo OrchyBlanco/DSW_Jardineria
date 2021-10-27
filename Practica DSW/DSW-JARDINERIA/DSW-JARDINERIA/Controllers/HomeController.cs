@@ -31,11 +31,13 @@ namespace DSW_JARDINERIA.Controllers
 
         public IActionResult Index()
         {
+           // ViewData["bienvenido"] = localizador["bienvenido"];
             return View();
         }
 
         public IActionResult Privacy()
         {
+            //ViewData["privacidad"] = localizador["privadidad"];
             return View();
         }
 

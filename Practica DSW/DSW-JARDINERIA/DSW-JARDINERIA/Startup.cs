@@ -30,10 +30,10 @@ namespace DSW_JARDINERIA
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             //Acceso a Base de datos
             services.AddDbContext<jardineriaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
-
             //Fin Acceso Base de datos
 
 
