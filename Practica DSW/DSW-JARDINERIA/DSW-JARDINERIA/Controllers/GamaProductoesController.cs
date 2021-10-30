@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DSW_JARDINERIA.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DSW_JARDINERIA.Controllers
 {
+    
     public class GamaProductoesController : Controller
     {
         private readonly jardineriaContext _context;
@@ -43,6 +45,7 @@ namespace DSW_JARDINERIA.Controllers
         }
 
         // GET: GamaProductoes/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -53,6 +56,7 @@ namespace DSW_JARDINERIA.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize] //CONTROL DE ACCESOS
         public async Task<IActionResult> Create([Bind("Gama,DescripcionTexto,DescripcionHtml,Imagen")] GamaProducto gamaProducto)
         {
             if (ModelState.IsValid)
@@ -65,6 +69,7 @@ namespace DSW_JARDINERIA.Controllers
         }
 
         // GET: GamaProductoes/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -85,6 +90,7 @@ namespace DSW_JARDINERIA.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(string id, [Bind("Gama,DescripcionTexto,DescripcionHtml,Imagen")] GamaProducto gamaProducto)
         {
             if (id != gamaProducto.Gama)
@@ -116,6 +122,7 @@ namespace DSW_JARDINERIA.Controllers
         }
 
         // GET: GamaProductoes/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -136,6 +143,7 @@ namespace DSW_JARDINERIA.Controllers
         // POST: GamaProductoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var gamaProducto = await _context.GamaProductos.FindAsync(id);

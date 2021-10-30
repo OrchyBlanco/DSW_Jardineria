@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DSW_JARDINERIA.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DSW_JARDINERIA.Controllers
 {
+    
     public class ProductoesController : Controller
     {
         private readonly jardineriaContext _context;
@@ -17,7 +19,7 @@ namespace DSW_JARDINERIA.Controllers
         {
             _context = context;
         }
-
+        
         // GET: Productoes
         public async Task<IActionResult> Index()
         {
@@ -26,6 +28,7 @@ namespace DSW_JARDINERIA.Controllers
         }
 
         // GET: Productoes/Details/5
+
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -45,6 +48,7 @@ namespace DSW_JARDINERIA.Controllers
         }
 
         // GET: Productoes/Create
+        [Authorize] //Control de ACCESOS
         public IActionResult Create()
         {
             ViewData["Gama"] = new SelectList(_context.GamaProductos, "Gama", "Gama");
@@ -56,6 +60,7 @@ namespace DSW_JARDINERIA.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("CodigoProducto,Nombre,Gama,Dimensiones,Proveedor,Descripcion,CantidadEnStock,PrecioVenta,PrecioProveedor")] Producto producto)
         {
             if (ModelState.IsValid)
@@ -69,6 +74,7 @@ namespace DSW_JARDINERIA.Controllers
         }
 
         // GET: Productoes/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -90,6 +96,7 @@ namespace DSW_JARDINERIA.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(string id, [Bind("CodigoProducto,Nombre,Gama,Dimensiones,Proveedor,Descripcion,CantidadEnStock,PrecioVenta,PrecioProveedor")] Producto producto)
         {
             if (id != producto.CodigoProducto)
@@ -122,6 +129,7 @@ namespace DSW_JARDINERIA.Controllers
         }
 
         // GET: Productoes/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -143,6 +151,7 @@ namespace DSW_JARDINERIA.Controllers
         // POST: Productoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var producto = await _context.Productos.FindAsync(id);
