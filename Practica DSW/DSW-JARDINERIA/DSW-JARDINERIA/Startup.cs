@@ -1,9 +1,13 @@
 using DSW_JARDINERIA.Data;
+using DSW_JARDINERIA.Models;
+using DSW_JARDINERIA.Servicios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,14 +31,31 @@ namespace DSW_JARDINERIA
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IEmailSender, EnviarEmail>();
+            services.AddControllersWithViews();
+
+            //Acceso a Base de datos jardineria
+            services.AddDbContext<jardineriaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Jardineria")));
+            services.AddControllersWithViews();
+            //Fin Acceso Base de datos jardineria
+
+
+            //Internacionalizacion
+            services.AddLocalization(opt => { opt.ResourcesPath = "Recursos"; });
+            services.AddMvc()
+            .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+            .AddDataAnnotationsLocalization();
+            //FIN Internacionalizacion
+
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("Autentication")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +76,15 @@ namespace DSW_JARDINERIA
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            //Internacionalizacion
+            var culturas_array = new[] { "es", "en" };
+            var opciones_de_localizacion = new
+            RequestLocalizationOptions().SetDefaultCulture(culturas_array[0])
+            .AddSupportedCultures(culturas_array)
+            .AddSupportedUICultures(culturas_array);
+            app.UseRequestLocalization(opciones_de_localizacion);
+            //FIN Internacionalizacion
 
             app.UseAuthentication();
             app.UseAuthorization();
