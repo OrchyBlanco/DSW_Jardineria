@@ -1,10 +1,12 @@
 using DSW_JARDINERIA.Data;
 using DSW_JARDINERIA.Models;
+using DSW_JARDINERIA.Servicios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,12 +31,13 @@ namespace DSW_JARDINERIA
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IEmailSender, EnviarEmail>();
             services.AddControllersWithViews();
 
-            //Acceso a Base de datos
-            services.AddDbContext<jardineriaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //Acceso a Base de datos jardineria
+            services.AddDbContext<jardineriaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Jardineria")));
             services.AddControllersWithViews();
-            //Fin Acceso Base de datos
+            //Fin Acceso Base de datos jardineria
 
 
             //Internacionalizacion
@@ -47,7 +50,7 @@ namespace DSW_JARDINERIA
             
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("Autentication")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
