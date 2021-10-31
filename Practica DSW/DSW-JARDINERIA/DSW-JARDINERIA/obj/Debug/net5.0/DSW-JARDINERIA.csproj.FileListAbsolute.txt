@@ -392,3 +392,6 @@ C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DS
 C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\bin\Debug\net5.0\JetBrains.Annotations.dll
+C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\bin\Debug\net5.0\X.PagedList.dll
+C:\Users\jesus\OneDrive\Escritorio\DSW_Jardineria\Practica DSW\DSW-JARDINERIA\DSW-JARDINERIA\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll

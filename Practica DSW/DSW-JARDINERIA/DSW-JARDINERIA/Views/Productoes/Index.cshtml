@@ -1,4 +1,8 @@
-﻿@model IEnumerable<DSW_JARDINERIA.Models.Producto>
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Web.Common;
+
+@model IPagedList<DSW_JARDINERIA.Models.Producto>;
 
 @{
     ViewData["Title"] = "Index";
@@ -9,69 +13,142 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<!--Formulario de Busquedas-->
+<form asp-action="Index" method="get">
+    <div>
+        <p>
+            Buscar por Nombre: <input type="text" name="buscado"
+                                      value="@ViewData["busqueda_actual"]" />
+            <input type="submit" value="Buscar" /> |
+            <a asp-action="Index">Limpiar búsqueda</a>
+        </p>
+    </div>
+</form>
+
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                @Html.DisplayNameFor(model => model.First().Nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dimensiones)
+                @Html.DisplayNameFor(model => model.First().Dimensiones)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Proveedor)
+                @Html.DisplayNameFor(model => model.First().Proveedor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
+                @Html.DisplayNameFor(model => model.First().Descripcion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CantidadEnStock)
+                @Html.DisplayNameFor(model => model.First().CantidadEnStock)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PrecioVenta)
+                @Html.DisplayNameFor(model => model.First().PrecioVenta)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PrecioProveedor)
+                @Html.DisplayNameFor(model => model.First().PrecioProveedor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GamaNavigation)
+                @Html.DisplayNameFor(model => model.First().GamaNavigation)
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dimensiones)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Proveedor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CantidadEnStock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioVenta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioProveedor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GamaNavigation.Gama)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CodigoProducto">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CodigoProducto">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CodigoProducto">Delete</a>
-            </td>
+
+      <!-- ORDENACION:
+          <tr>
+            <th>
+                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_nombre"]">
+                    @Html.DisplayNameFor(model => model.First().Nombre)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_dimensiones"]">
+                    @Html.DisplayNameFor(model => model.First().Dimensiones)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_proveedor"]">
+                    @Html.DisplayNameFor(model => model.First().Proveedor)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_descripcion"]">
+                    @Html.DisplayNameFor(model => model.First().Descripcion)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_cantidadenstock"]">
+                    @Html.DisplayNameFor(model => model.First().CantidadEnStock)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_precioventa"]">
+                    @Html.DisplayNameFor(model => model.First().PrecioVenta)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_precioproveedor"]">
+                    @Html.DisplayNameFor(model => model.First().PrecioProveedor)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_gamanavigation"]">
+                    @Html.DisplayNameFor(model => model.First().GamaNavigation)
+                </a>
+            </th>
         </tr>
-}
+    </thead>
+      -->
+
+      
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dimensiones)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proveedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadEnStock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioVenta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioProveedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GamaNavigation.Gama)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CodigoProducto">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CodigoProducto">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CodigoProducto">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@Html.PagedListPager(Model
+    , nueva_pagina => Url.Action("Index", "Productoes"
+        , new { nueva_pagina, buscado = (string)null, busqueda_actual = ViewData["busqueda_actual"],ordenacion = ViewData["ordenacion"] })
+    , new PagedListRenderOptions
+    {
+        LiElementClasses = new string[] { "page-item" },
+        PageClasses = new string[] { "page-link" }
+    })
+
