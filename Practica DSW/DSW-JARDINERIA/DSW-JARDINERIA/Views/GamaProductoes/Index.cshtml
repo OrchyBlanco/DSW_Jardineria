@@ -1,4 +1,8 @@
-﻿@model IEnumerable<DSW_JARDINERIA.Models.GamaProducto>
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Web.Common;
+
+@model IPagedList<DSW_JARDINERIA.Models.GamaProducto>;
 
 @{
     ViewData["Title"] = "Index";
@@ -9,39 +13,64 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<!--Formulario de Busquedas-->
+<form asp-action="Index" method="get">
+    <div>
+        <p>
+            Buscar por Gama: <input type="text" name="buscado"
+                                    value="@ViewData["busqueda_actual"]" />
+            <input type="submit" value="Buscar" /> |
+            <a asp-action="Index">Limpiar búsqueda</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.DescripcionTexto)
+                @Html.DisplayNameFor(model => model.First().Gama)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DescripcionHtml)
+                @Html.DisplayNameFor(model => model.First().DescripcionTexto)
             </th>
+            
             <th>
-                @Html.DisplayNameFor(model => model.Imagen)
+                @Html.DisplayNameFor(model => model.First().Imagen)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gama)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DescripcionTexto)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescripcionHtml)
-            </td>
+          
             <td>
                 @Html.DisplayFor(modelItem => item.Imagen)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Gama">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Gama">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Gama">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Gama">Delete</a> |
+                <a asp-action="ProductosPorGama" asp-route-id="@item.Gama">Lista de Productos</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
+@Html.PagedListPager(Model
+    , nueva_pagina => Url.Action("Index", "GamaProductoes"
+        , new { nueva_pagina, buscado = (string)null, busqueda_actual = ViewData["busqueda_actual"], ordenacion = ViewData["ordenacion"] })
+    , new PagedListRenderOptions
+    {
+        LiElementClasses = new string[] { "page-item" },
+        PageClasses = new string[] { "page-link" }
+    })

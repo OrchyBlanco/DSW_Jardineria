@@ -16,7 +16,7 @@ namespace DSW_JARDINERIA.Controllers
     {
         private readonly jardineriaContext _context;
         public int tam_pagina = 15;
-        public string ordenacion;
+       // public string ordenacion;
 
         public ProductoesController(jardineriaContext context)
         {
@@ -43,167 +43,167 @@ namespace DSW_JARDINERIA.Controllers
             }
             ViewData["busqueda_actual"] = buscado;
 
-/*
-            // ORDENACION DE PRODUCTOS
-            switch (ordenacion)
-            {
-                case "ordenar_nombre_ascendente":
-                    product_select = product_select.OrderBy(atributo => atributo.Nombre);
-                    break;
-                case "ordenar_nombre_descendente":
-                    product_select = product_select.OrderByDescending(atributo => atributo.Nombre);
-                    break;
-                case "ordenar_dimensiones_ascendente":
-                    product_select = product_select.OrderBy(atributo => atributo.Dimensiones);
-                    break;
-                case "ordenar_dimensiones_descendente":
-                    product_select = product_select.OrderByDescending(atributo => atributo.Dimensiones);
-                    break;
-                case "ordenar_descripcion_ascendente":
-                    product_select = product_select.OrderBy(atributo => atributo.Descripcion);
-                    break;
-                case "ordenar_descripcion_descendente":
-                    product_select = product_select.OrderByDescending(atributo => atributo.Descripcion);
-                    break;
-            }
-            //DATOS DE ORDENACION
+            /*
+                        // ORDENACION DE PRODUCTOS --> Revison para aplicar en un Futuro
+                        switch (ordenacion)
+                        {
+                            case "ordenar_nombre_ascendente":
+                                product_select = product_select.OrderBy(atributo => atributo.Nombre);
+                                break;
+                            case "ordenar_nombre_descendente":
+                                product_select = product_select.OrderByDescending(atributo => atributo.Nombre);
+                                break;
+                            case "ordenar_dimensiones_ascendente":
+                                product_select = product_select.OrderBy(atributo => atributo.Dimensiones);
+                                break;
+                            case "ordenar_dimensiones_descendente":
+                                product_select = product_select.OrderByDescending(atributo => atributo.Dimensiones);
+                                break;
+                            case "ordenar_descripcion_ascendente":
+                                product_select = product_select.OrderBy(atributo => atributo.Descripcion);
+                                break;
+                            case "ordenar_descripcion_descendente":
+                                product_select = product_select.OrderByDescending(atributo => atributo.Descripcion);
+                                break;
+                        }
+                        //DATOS DE ORDENACION
 
-            ViewData["ordenar_nombre"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_nombre_ascendente":
-                ordenacion == "ordenar_nombre_ascendente" ? "ordenar_nombre_descendente":"";
+                        ViewData["ordenar_nombre"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_nombre_ascendente":
+                            ordenacion == "ordenar_nombre_ascendente" ? "ordenar_nombre_descendente":"";
 
-            ViewData["ordenar_dimensiones"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_dimensiones_ascendente" :
-                ordenacion == "ordenar_dimensiones_ascendente" ? "ordenar_dimensiones_descendente" : "";
+                        ViewData["ordenar_dimensiones"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_dimensiones_ascendente" :
+                            ordenacion == "ordenar_dimensiones_ascendente" ? "ordenar_dimensiones_descendente" : "";
 
-            ViewData["ordenar_proveedor"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_proveedor_ascendente" :
-                ordenacion == "ordenar_proveedor_ascendente" ? "ordenar_proveedor_descendente" : "";
+                        ViewData["ordenar_proveedor"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_proveedor_ascendente" :
+                            ordenacion == "ordenar_proveedor_ascendente" ? "ordenar_proveedor_descendente" : "";
 
-            ViewData["ordenar_descripcion"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_descripcion_ascendente":
-                ordenacion == "ordenar_descripcion_ascendente" ? "ordenar_descripcion_descendente": "";
+                        ViewData["ordenar_descripcion"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_descripcion_ascendente":
+                            ordenacion == "ordenar_descripcion_ascendente" ? "ordenar_descripcion_descendente": "";
 
-            ViewData["ordenar_cantidadenstock"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_cantidadenstock_ascendente" :
-                ordenacion == "ordenar_cantidadenstock_ascendente" ? "ordenar_cantidadenstock_descendente" : "";
+                        ViewData["ordenar_cantidadenstock"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_cantidadenstock_ascendente" :
+                            ordenacion == "ordenar_cantidadenstock_ascendente" ? "ordenar_cantidadenstock_descendente" : "";
 
-            ViewData["ordenar_precioventa"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_precioventa_ascendente" :
-                ordenacion == "ordenar_precioventa_ascendente" ? "ordenar_precioventa_descendente" : "";
+                        ViewData["ordenar_precioventa"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_precioventa_ascendente" :
+                            ordenacion == "ordenar_precioventa_ascendente" ? "ordenar_precioventa_descendente" : "";
 
-            ViewData["ordenar_precioproveedor"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_precioproveedor_ascendente" :
-                ordenacion == "ordenar_precioproveedor_ascendente" ? "ordenar_precioproveedor_descendente" : "";
+                        ViewData["ordenar_precioproveedor"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_precioproveedor_ascendente" :
+                            ordenacion == "ordenar_precioproveedor_ascendente" ? "ordenar_precioproveedor_descendente" : "";
 
-            ViewData["ordenar_gamanavigation"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_gamanavigation_ascendente" :
-                ordenacion == "ordenar_gamanavigation_ascendente" ? "ordenar_gamanavigation_descendente" : "";
+                        ViewData["ordenar_gamanavigation"] = String.IsNullOrEmpty(ordenacion) ? "ordenar_gamanavigation_ascendente" :
+                            ordenacion == "ordenar_gamanavigation_ascendente" ? "ordenar_gamanavigation_descendente" : "";
 
-            // TENDREMOS QUE GENERAR UN IF/ELSE IF/ELSE POR CADA OPCION A ORDENAR.
-            //ORDENAR NOMBRE
-            if (String.IsNullOrEmpty(ordenacion))
-            {
-                ViewData["ordenar_nombre"] = "ordenar_nombre_ascendente";
-            }
-            else if (ordenacion == "ordenar_nombre_ascendente")
-            {
-                ViewData["ordenar_nombre"] = "ordenar_nombre_descendente";
-            }
-            else
-            {
-                ViewData["ordenar_nombre"] = "";
-            }
-            //ORDENAR DIMENSIONES
-            if (String.IsNullOrEmpty(ordenacion))
-            {
-                ViewData["ordenar_dimensiones"] = "ordenar_dimensiones_ascendente";
-            }
-            else if (ordenacion == "ordenar_dimensiones_ascendente")
-            {
-                ViewData["ordenar_dimensiones"] = "ordenar_dimensiones_descendente";
-            }
-            else
-            {
-                ViewData["ordenar_dimensiones"] = "";
-            }
-            //ORDENAR PROVEEDOR
-            if (String.IsNullOrEmpty(ordenacion))
-            {
-                ViewData["ordenar_proveedor"] = "ordenar_proveedor_ascendente";
-            }
-            else if (ordenacion == "ordenar_proveedor_ascendente")
-            {
-                ViewData["ordenar_proveedor"] = "ordenar_proveedor_descendente";
-            }
-            else
-            {
-                ViewData["ordenar_proveedor"] = "";
-            }
+                        // TENDREMOS QUE GENERAR UN IF/ELSE IF/ELSE POR CADA OPCION A ORDENAR.
+                        //ORDENAR NOMBRE
+                        if (String.IsNullOrEmpty(ordenacion))
+                        {
+                            ViewData["ordenar_nombre"] = "ordenar_nombre_ascendente";
+                        }
+                        else if (ordenacion == "ordenar_nombre_ascendente")
+                        {
+                            ViewData["ordenar_nombre"] = "ordenar_nombre_descendente";
+                        }
+                        else
+                        {
+                            ViewData["ordenar_nombre"] = "";
+                        }
+                        //ORDENAR DIMENSIONES
+                        if (String.IsNullOrEmpty(ordenacion))
+                        {
+                            ViewData["ordenar_dimensiones"] = "ordenar_dimensiones_ascendente";
+                        }
+                        else if (ordenacion == "ordenar_dimensiones_ascendente")
+                        {
+                            ViewData["ordenar_dimensiones"] = "ordenar_dimensiones_descendente";
+                        }
+                        else
+                        {
+                            ViewData["ordenar_dimensiones"] = "";
+                        }
+                        //ORDENAR PROVEEDOR
+                        if (String.IsNullOrEmpty(ordenacion))
+                        {
+                            ViewData["ordenar_proveedor"] = "ordenar_proveedor_ascendente";
+                        }
+                        else if (ordenacion == "ordenar_proveedor_ascendente")
+                        {
+                            ViewData["ordenar_proveedor"] = "ordenar_proveedor_descendente";
+                        }
+                        else
+                        {
+                            ViewData["ordenar_proveedor"] = "";
+                        }
 
-            //ORDENAR DESCRIPCION
-            if (String.IsNullOrEmpty(ordenacion))
-            {
-                ViewData["ordenar_descripcion"] =
-                  "ordenar_descripcion_ascendente";
-            }
-            else if (ordenacion == "ordenar_descripcion_ascendente")
-            {
-                ViewData["ordenar_descripcion"] =
-                  "ordenar_descripcion_descendente";
-            }
-            else
-            {
-                ViewData["ordenar_descripcion"] = "";
-            }
-            //ORDENAR CANTIDADENSTOCK
-            if (String.IsNullOrEmpty(ordenacion))
-            {
-                ViewData["ordenar_cantidadenstock"] = "ordenar_cantidadenstock_ascendente";
-            }
-            else if (ordenacion == "ordenar_cantidadenstock_ascendente")
-            {
-                ViewData["ordenar_cantidadenstock"] = "ordenar_cantidadenstock_descendente";
-            }
-            else
-            {
-                ViewData["ordenar_cantidadenstock"] = "";
-            }
+                        //ORDENAR DESCRIPCION
+                        if (String.IsNullOrEmpty(ordenacion))
+                        {
+                            ViewData["ordenar_descripcion"] =
+                              "ordenar_descripcion_ascendente";
+                        }
+                        else if (ordenacion == "ordenar_descripcion_ascendente")
+                        {
+                            ViewData["ordenar_descripcion"] =
+                              "ordenar_descripcion_descendente";
+                        }
+                        else
+                        {
+                            ViewData["ordenar_descripcion"] = "";
+                        }
+                        //ORDENAR CANTIDADENSTOCK
+                        if (String.IsNullOrEmpty(ordenacion))
+                        {
+                            ViewData["ordenar_cantidadenstock"] = "ordenar_cantidadenstock_ascendente";
+                        }
+                        else if (ordenacion == "ordenar_cantidadenstock_ascendente")
+                        {
+                            ViewData["ordenar_cantidadenstock"] = "ordenar_cantidadenstock_descendente";
+                        }
+                        else
+                        {
+                            ViewData["ordenar_cantidadenstock"] = "";
+                        }
 
-            //ORDENAR PRECIOVENTA
-            if (String.IsNullOrEmpty(ordenacion))
-            {
-                ViewData["ordenar_precioventa"] = "ordenar_precioventa_ascendente";
-            }
-            else if (ordenacion == "ordenar_precioventa_ascendente")
-            {
-                ViewData["ordenar_precioventa"] = "ordenar_precioventa_descendente";
-            }
-            else
-            {
-                ViewData["ordenar_precioventa"] = "";
-            }
+                        //ORDENAR PRECIOVENTA
+                        if (String.IsNullOrEmpty(ordenacion))
+                        {
+                            ViewData["ordenar_precioventa"] = "ordenar_precioventa_ascendente";
+                        }
+                        else if (ordenacion == "ordenar_precioventa_ascendente")
+                        {
+                            ViewData["ordenar_precioventa"] = "ordenar_precioventa_descendente";
+                        }
+                        else
+                        {
+                            ViewData["ordenar_precioventa"] = "";
+                        }
 
-            //ORDENAR PRECIOPROVEEDOR
-            if (String.IsNullOrEmpty(ordenacion))
-            {
-                ViewData["ordenar_precioproveedor"] = "ordenar_precioproveedor_ascendente";
-            }
-            else if (ordenacion == "ordenar_precioproveedor_ascendente")
-            {
-                ViewData["ordenar_precioproveedor"] = "ordenar_precioproveedor_descendente";
-            }
-            else
-            {
-                ViewData["ordenar_precioproveedor"] = "";
-            }
+                        //ORDENAR PRECIOPROVEEDOR
+                        if (String.IsNullOrEmpty(ordenacion))
+                        {
+                            ViewData["ordenar_precioproveedor"] = "ordenar_precioproveedor_ascendente";
+                        }
+                        else if (ordenacion == "ordenar_precioproveedor_ascendente")
+                        {
+                            ViewData["ordenar_precioproveedor"] = "ordenar_precioproveedor_descendente";
+                        }
+                        else
+                        {
+                            ViewData["ordenar_precioproveedor"] = "";
+                        }
 
-            //ORDENAR GAMANAVIGATION
-            if (String.IsNullOrEmpty(ordenacion))
-            {
-                ViewData["ordenar_gamanavigation"] = "ordenar_gamanavigation_ascendente";
-            }
-            else if (ordenacion == "ordenar_gamanavigation_ascendente")
-            {
-                ViewData["ordenar_gamanavigation"] = "ordenar_gamanavigation_descendente";
-            }
-            else
-            {
-                ViewData["ordenar_gamanavigation"] = "";
-            }
-*/
+                        //ORDENAR GAMANAVIGATION
+                        if (String.IsNullOrEmpty(ordenacion))
+                        {
+                            ViewData["ordenar_gamanavigation"] = "ordenar_gamanavigation_ascendente";
+                        }
+                        else if (ordenacion == "ordenar_gamanavigation_ascendente")
+                        {
+                            ViewData["ordenar_gamanavigation"] = "ordenar_gamanavigation_descendente";
+                        }
+                        else
+                        {
+                            ViewData["ordenar_gamanavigation"] = "";
+                        }
+            */
 
             return View(product_select.ToList().ToPagedList(nueva_pagina ?? 1, tam_pagina));
         }

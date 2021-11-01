@@ -5,25 +5,11 @@
 @model IPagedList<DSW_JARDINERIA.Models.Producto>;
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ProductosPorGama";
+   
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<!--Formulario de Busquedas-->
-<form asp-action="Index" method="get">
-    <div>
-        <p>
-            Buscar por Nombre: <input type="text" name="buscado"
-                                      value="@ViewData["busqueda_actual"]" />
-            <input type="submit" value="Buscar" /> |
-            <a asp-action="Index">Limpiar búsqueda</a>
-        </p>
-    </div>
-</form>
+<h1>Productos Por Gama: @ViewData["gamaSeleccionada"]</h1>
 
 
 <table class="table">
@@ -56,55 +42,6 @@
             <th></th>
         </tr>
     </thead>
-
-      <!-- ORDENACION:
-          <tr>
-            <th>
-                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_nombre"]">
-                    @Html.DisplayNameFor(model => model.First().Nombre)
-                </a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_dimensiones"]">
-                    @Html.DisplayNameFor(model => model.First().Dimensiones)
-                </a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_proveedor"]">
-                    @Html.DisplayNameFor(model => model.First().Proveedor)
-                </a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_descripcion"]">
-                    @Html.DisplayNameFor(model => model.First().Descripcion)
-                </a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_cantidadenstock"]">
-                    @Html.DisplayNameFor(model => model.First().CantidadEnStock)
-                </a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_precioventa"]">
-                    @Html.DisplayNameFor(model => model.First().PrecioVenta)
-                </a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_precioproveedor"]">
-                    @Html.DisplayNameFor(model => model.First().PrecioProveedor)
-                </a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-ordenacion="@ViewData["ordenar_gamanavigation"]">
-                    @Html.DisplayNameFor(model => model.First().GamaNavigation)
-                </a>
-            </th>
-        </tr>
-    </thead>
-      -->
-
-      
-
     <tbody>
         @foreach (var item in Model)
         {
@@ -142,13 +79,11 @@
         }
     </tbody>
 </table>
-
 @Html.PagedListPager(Model
     , nueva_pagina => Url.Action("Index", "Productoes"
-        , new { nueva_pagina, buscado = (string)null, busqueda_actual = ViewData["busqueda_actual"],ordenacion = ViewData["ordenacion"] })
+    , new { nueva_pagina, buscado = (string)null, busqueda_actual = ViewData["busqueda_actual"], ordenacion = ViewData["ordenacion"] })
     , new PagedListRenderOptions
     {
         LiElementClasses = new string[] { "page-item" },
         PageClasses = new string[] { "page-link" }
     })
-
