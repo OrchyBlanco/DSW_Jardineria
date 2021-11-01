@@ -13,30 +13,31 @@
         </div>
         <!-- Fin de imageContainer -->
         <!-- Inicio de optionContainer -->
-        <div class="optionContainer">
+        <div class="optionContainer d-flex flex-row justify-content-around">
 
             <div id="productContainer">
                 <h2> Productos </h2>
-                <div id="productos">
-                    <a asp-area="" asp-controller="Productoes" asp-action="Index"> Ir a los productos>></a>
+                <div id="productos" class="d-flex flex-row align-content-center ">
                     <div id="imgProduct"> </div>
+                    <a asp-area="" asp-controller="Productoes" asp-action="Index"> Ir a los productos>></a>
+
                 </div>
             </div>
 
             <div id="gamaContainer">
                 <h2> Gama </h2>
-                <div class="gamas">
-                    <a asp-area="" asp-controller="GamaProductoes" asp-action="Index"> Ir a gamas>> </a>
+                <div class="d-flex flex-row align-content-center">
                     <div id="imgGama"></div>
+                    <a asp-area="" asp-controller="GamaProductoes" asp-action="Index"> Ir a gamas>> </a>
                 </div>
-
             </div>
 
             <div id="loginContainer">
                 <h2> Login </h2>
-                <div class="login">
-                    <a asp-area="Identity" asp-page="/Account/Login">Ir a Identificación>></a>
+                <div class="d-flex flex-row align-content-center">
                     <div id="imgLogin"></div>
+                    <a asp-area="Identity" asp-page="/Account/Login">Ir a Identificación>></a>
+
                 </div>
             </div>
         </div>
