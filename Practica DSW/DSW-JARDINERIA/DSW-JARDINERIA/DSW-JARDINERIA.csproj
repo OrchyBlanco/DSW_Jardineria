@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\Assets\Img\cesped.jpg" />
+    <None Include="wwwroot\css\Assets\Img\hierbitas.jpg" />
+    <None Include="wwwroot\css\Assets\Img\jardinperfecto.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.11" />

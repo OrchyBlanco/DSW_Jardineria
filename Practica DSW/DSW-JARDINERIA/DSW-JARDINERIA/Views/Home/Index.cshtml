@@ -1,11 +1,49 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Identity
 @inject IViewLocalizer localizador
 @{
     ViewData["Title"] = "Home Page";
 }
+@inject SignInManager<IdentityUser> SignInManager
 
-<div class="text-center">
-    <h1 class="display-4">@localizador["bienvenido"]</h1>
-    <h1>@ViewData["bienvenido"]</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Inicio de la caja contenedora -->
+<div class="globalFather">
+    <!-- Inicio de imageContainer -->
+    <div class="imageContainer">
+        <h1> Jardineria de Inmma en ASP.NET </h1>
+        <h3> Todo para tu jadín con estilo.</h3>
+        <div class="button">
+            <button> Admin </button>
+        </div>
+    </div>
+    <!-- Fin de imageContainer -->
+    <!-- Inicio de optionContainer -->
+    <div class="optionContainer">
+
+        <div class="productContainer">
+            <h2> Productos </h2>
+            <div class="productos">
+                <a asp-area="" asp-controller="Productoes" asp-action="Index"> Ir a los productos>></a>
+                <div id="imgProduct"> </div>
+            </div>
+        </div>
+
+        <div class="gamaContainer">
+            <h2> Gama </h2>
+            <div class="gamas">
+                <a asp-area="" asp-controller="GamaProductoes" asp-action="Index"> Ir a gamas>> </a>
+                <div id="imgGama"></div>
+            </div>
+
+        </div>
+
+        <div class="loginContainer">
+            <h2> Login </h2>
+            <div class="login">
+                <div id="imgLogin"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin de optionContainer -->
 </div>
+<!-- Fin de la caja contenedora -->
