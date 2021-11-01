@@ -5,7 +5,42 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">@localizador["bienvenido"]</h1>
-    <h1>@ViewData["bienvenido"]</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div id="globalFather">
+        <!-- Inicio de imageContainer -->
+        <div id="imageContainer" class="d-flex flex-column justify-content-center align-content-center">
+            <h1 class="text-light"> Jardineria de Inmma en ASP.NET </h1>
+            <h2 class="text-light"> Todo para tu jadín con estilo.</h2>
+        </div>
+        <!-- Fin de imageContainer -->
+        <!-- Inicio de optionContainer -->
+        <div class="optionContainer">
+
+            <div id="productContainer">
+                <h2> Productos </h2>
+                <div id="productos">
+                    <a asp-area="" asp-controller="Productoes" asp-action="Index"> Ir a los productos>></a>
+                    <div id="imgProduct"> </div>
+                </div>
+            </div>
+
+            <div id="gamaContainer">
+                <h2> Gama </h2>
+                <div class="gamas">
+                    <a asp-area="" asp-controller="GamaProductoes" asp-action="Index"> Ir a gamas>> </a>
+                    <div id="imgGama"></div>
+                </div>
+
+            </div>
+
+            <div id="loginContainer">
+                <h2> Login </h2>
+                <div class="login">
+                    <a asp-area="Identity" asp-page="/Account/Login">Ir a Identificación>></a>
+                    <div id="imgLogin"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin de optionContainer -->
+    </div>
+    <!-- Fin de la caja contenedora -->
 </div>
